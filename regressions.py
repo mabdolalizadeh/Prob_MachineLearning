@@ -14,7 +14,7 @@ class Regressions:
         self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(
             self.dataset[:-1], self.dataset[-1], test_size=0.2, random_state=0
         )
-        self.y_pred, self.mse, self.r2, self.accuracy = self.regressor()
+        self.y_pred, self.mse, self.r2, self.accuracy, self.importances = self.regressor()
 
     def linear_checker(self):
         for i in range(self.correlation.shape[0]):
@@ -34,6 +34,7 @@ class Regressions:
         mse = mean_squared_error(self.y_test, self.y_pred)
         r2 = r2_score(self.y_test, self.y_pred)
         accuracy = model.score(self.X_test, self.y_test)
-        return y_pred, mse, r2, accuracy
+        importances = model.feature_importances_
+        return y_pred, mse, r2, accuracy, importances
 
 

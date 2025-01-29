@@ -31,5 +31,17 @@ plt.plot([min(regression.y_test), max(regression.y_test)],
          [min(regression.y_test), max(regression.y_test)], 'r--', label='Perfect fit')
 plt.xlabel('Actual values')
 plt.ylabel('Predicted values')
+plt.title(f"Prediction of {regression.reg_model.capitalize()}")
 plt.legend()
 plt.show()
+
+# feature importance plot
+features = regression.X_train.columns
+sorted_indices = np.argsort(regression.importances)[::-1]
+
+plt.figure(figsize=(8, 5))
+plt.barh(features[sorted_indices], regression.importances[sorted_indices],
+         color='skyblue', align='center')
+plt.xlabel('Importance')
+plt.ylabel('Feature')
+plt.title(f"Feature Importance Of {regression.reg_model.capitalize()}")
