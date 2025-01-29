@@ -3,7 +3,8 @@ import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 import matplotlib
-from regressions import linear_checker
+from regressions import Regressions
+
 
 matplotlib.use('TkAgg')
 
@@ -22,5 +23,5 @@ sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt='.2f')
 plt.title("Correlation Matrix")
 plt.show()
 
-
+regressions = Regressions(dataset, correlation_matrix)
 
