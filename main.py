@@ -23,5 +23,13 @@ sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt='.2f')
 plt.title("Correlation Matrix")
 plt.show()
 
-regressions = Regressions(dataset, correlation_matrix)
+regression = Regressions(dataset, correlation_matrix)
 
+# plot prediction
+plt.scatter(regression.y_test, regression.y_pred, color='blue', label='Prediction')
+plt.plot([min(regression.y_test), max(regression.y_test)],
+         [min(regression.y_test), max(regression.y_test)], 'r--', label='Perfect fit')
+plt.xlabel('Actual values')
+plt.ylabel('Predicted values')
+plt.legend()
+plt.show()
