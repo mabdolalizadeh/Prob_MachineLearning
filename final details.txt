@@ -1,0 +1,20 @@
+[*] Regression model: randomForest
+[*] Correlation:                       body_weight  ...  danger_index
+body_weight              1.000000  ...      0.121740
+brain_weight             0.933989  ...      0.123911
+predation_index          0.048754  ...      0.941434
+sleep_exposure_index     0.351248  ...      0.768105
+danger_index             0.121740  ...      1.000000
+
+[5 rows x 5 columns]
+, It's Weak[*] MSE: 0.011863636363636377
+[*] MMSE: 0.011863636363636377
+[*] R2: 0.9937586956521739
+[*] Covariance matrix:                         body_weight  ...  danger_index
+body_weight           977064.189151  ...    171.808110
+brain_weight          940654.395453  ...    180.253694
+predation_index           71.721573  ...      2.000392
+sleep_exposure_index     548.147784  ...      1.731373
+danger_index             171.808110  ...      2.038431
+
+[5 rows x 5 columns]

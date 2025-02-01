@@ -36,7 +36,7 @@ plt.legend()
 plt.show()
 
 # feature importance plot
-features = regression.X_train.columns
+features = regression.x_train.columns
 sorted_indices = np.argsort(regression.importance)[::-1]
 
 plt.figure(figsize=(8, 5))
@@ -46,12 +46,19 @@ plt.xlabel('Importance')
 plt.ylabel('Feature')
 plt.title(f"Feature Importance Of {regression.reg_model.capitalize()}")
 
-print(f'All Datas about this dataset: {dataset}')
-print("-"*50)
 print(f"[*] Regression model: {regression.reg_model.capitalize()}")
 print(f'[*] Correlation: {correlation_matrix}, It\'s {regression.strength}')
 print(f"[*] Covariance matrix: {cov_matrix}")
 print(f'[*] MSE: {regression.mse}')
 print(f'[*] MMSE: {regression.mmse}')
 print(f'[*] R2: {regression.r2}')
+
+with open('final details.txt', 'w') as f:
+    f.write(f'[*] Regression model: {regression.reg_model}\n')
+    f.write(f'[*] Correlation: {correlation_matrix}\n, It\'s {regression.strength}')
+    f.write(f'[*] MSE: {regression.mse}\n')
+    f.write(f'[*] MMSE: {regression.mmse}\n')
+    f.write(f'[*] R2: {regression.r2}\n')
+    f.write(f'[*] Covariance matrix: {cov_matrix}\n')
+
 
