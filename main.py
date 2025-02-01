@@ -37,11 +37,21 @@ plt.show()
 
 # feature importance plot
 features = regression.X_train.columns
-sorted_indices = np.argsort(regression.importances)[::-1]
+sorted_indices = np.argsort(regression.importance)[::-1]
 
 plt.figure(figsize=(8, 5))
-plt.barh(features[sorted_indices], regression.importances[sorted_indices],
+plt.barh(features[sorted_indices], regression.importance[sorted_indices],
          color='skyblue', align='center')
 plt.xlabel('Importance')
 plt.ylabel('Feature')
 plt.title(f"Feature Importance Of {regression.reg_model.capitalize()}")
+
+print(f'All Datas about this dataset: {dataset}')
+print("-"*50)
+print(f"[*] Regression model: {regression.reg_model.capitalize()}")
+print(f'[*] Correlation: {correlation_matrix}, It\'s {regression.strength}')
+print(f"[*] Covariance matrix: {cov_matrix}")
+print(f'[*] MSE: {regression.mse}')
+print(f'[*] MMSE: {regression.mmse}')
+print(f'[*] R2: {regression.r2}')
+
